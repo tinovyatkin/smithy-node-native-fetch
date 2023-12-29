@@ -92,9 +92,12 @@ export class NodeNativeFetchHttpHandler
       }
     }
 
+    const headers = new Headers(request.headers);
+    headers.delete("expect"); // not supported by node fetch
+
     const { method } = request;
     const requestOptions: RequestInit = {
-      headers: new Headers(request.headers),
+      headers,
       method,
       signal: abortSignal as AbortSignal,
       keepalive: this.config.keepAlive === true,
