@@ -11,7 +11,7 @@
     "url": "https://github.com/tinovyatkin/smithy-node-native-fetch.git",
     "type": "git"
   },
-  "license": "MIT",
+  "license": "Apache-2.0",
   "scripts": {
     "prepublishOnly": "tsc"
   },
