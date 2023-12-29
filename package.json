@@ -18,6 +18,13 @@
   "files": [
     "dist/"
   ],
+  "keywords": [
+    "aws",
+    "sdk",
+    "fetch",
+    "node",
+    "smithy"
+  ],
   "devDependencies": {
     "@homer0/prettier-plugin-jsdoc": "^8.0.0",
     "@smithy/protocol-http": "^3.0.11",
