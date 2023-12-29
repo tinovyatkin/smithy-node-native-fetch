@@ -91,6 +91,7 @@ export class NodeNativeFetchHttpHandler
       }
     }
 
+    const { method } = request;
     const requestOptions: RequestInit = {
       headers: new Headers(request.headers),
       method,
@@ -98,7 +99,6 @@ export class NodeNativeFetchHttpHandler
       keepalive: this.config.keepAlive === true,
       redirect: "manual",
     };
-    const { method } = request;
     if (request.body && method !== "GET" && method !== "HEAD")
       requestOptions.body = request.body;
 
