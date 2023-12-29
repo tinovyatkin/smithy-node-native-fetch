@@ -12,6 +12,7 @@ import type {
   HttpHandlerOptions,
   Provider,
 } from "@smithy/types";
+import { Readable } from "node:stream";
 
 type FetchHttpHandlerConfig = FetchHttpHandlerOptions;
 
@@ -99,8 +100,11 @@ export class NodeNativeFetchHttpHandler
       keepalive: this.config.keepAlive === true,
       redirect: "manual",
     };
-    if (request.body && method !== "GET" && method !== "HEAD")
-      requestOptions.body = request.body;
+    if (request.body && method !== "GET" && method !== "HEAD") {
+      if (request.body instanceof Readable)
+        requestOptions.body = Readable.toWeb(request.body);
+      else requestOptions.body = request.body;
+    }
 
     const requestTimeoutInMs = this.config.requestTimeout;
     if (requestTimeoutInMs) {
