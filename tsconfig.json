@@ -16,7 +16,14 @@
     "strictBindCallApply": true /* Check that the arguments for 'bind', 'call', and 'apply' methods match the original function. */,
     "strictPropertyInitialization": true /* Check for class properties that are declared but not set in the constructor. */,
     "noImplicitThis": true /* Enable error reporting when 'this' is given the type 'any'. */,
-    "skipLibCheck": true /* Skip type checking all .d.ts files. */
+    "skipLibCheck": true /* Skip type checking all .d.ts files. */,
+    "resolveJsonModule": true,
+    "removeComments": true,
+    "newLine": "lf",
+    "noUnusedLocals": true,
+    "isolatedModules": true,
+    "incremental": true,
+    "tsBuildInfoFile": "node_modules/.cache/.tsBuildInfo"
   },
   "include": ["src/"]
 }
