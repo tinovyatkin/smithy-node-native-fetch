@@ -43,6 +43,9 @@
     "typescript": "5.3.3"
   },
   "eslintConfig": {
+    "ignorePatterns": [
+      "dist/**"
+    ],
     "env": {
       "node": true
     },

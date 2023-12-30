@@ -7,5 +7,13 @@
       "source.organizeImports": "explicit"
     }
   },
-  "typescript.tsdk": "node_modules/typescript/lib"
+  "typescript.tsdk": "node_modules/typescript/lib",
+  "files.exclude": {
+    "**/.git": true,
+    "**/.DS_Store": true,
+    "**/Thumbs.db": true,
+    "**/.cspellcache": true,
+    "**/.eslintcache": true
+  },
+  "files.readonlyFromPermissions": true
 }
