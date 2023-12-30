@@ -9,7 +9,7 @@ on:
       - "package-lock.json"
       - ".github/workflows/lint.yml"
 jobs:
-  api:
+  lint:
     runs-on: ubuntu-latest
     permissions:
       contents: read
