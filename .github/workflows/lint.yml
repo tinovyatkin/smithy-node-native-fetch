@@ -1,0 +1,29 @@
+name: Lint
+
+on:
+  pull_request:
+    paths:
+      - "**.ts"
+      - "**.md"
+      - "package.json"
+      - "package-lock.json"
+      - ".github/workflows/lint.yml"
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    env:
+      HUSKY: 0
+      FORCE_COLOR: 2
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 18
+
+      - run: npm ci
+      - run: npx tsc --noEmit
+      - run: npx eslint "src/**/*.ts"
+      - run: npx prettier --check "*.{ts,md}"
+      - run: npx cspell "**/*.{ts,md}"
