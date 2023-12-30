@@ -13,7 +13,8 @@
   },
   "license": "Apache-2.0",
   "scripts": {
-    "prepublishOnly": "tsc"
+    "prepublishOnly": "tsc",
+    "prepare": "husky install"
   },
   "files": [
     "dist/"
@@ -35,6 +36,8 @@
     "cspell": "8.3.0",
     "eslint": "8.56.0",
     "eslint-config-prettier": "9.1.0",
+    "husky": "^8.0.3",
+    "lint-staged": "^15.2.0",
     "prettier": "3.1.1",
     "prettier-plugin-organize-imports": "3.2.4",
     "typescript": "5.3.3"
@@ -149,10 +152,16 @@
     "readonly": true,
     "words": [
       "Konstantin",
-      "Vyatkin"
+      "Vyatkin",
+      "undici"
     ]
   },
   "peerDependencies": {
     "@smithy/protocol-http": "^3"
+  },
+  "lint-staged": {
+    "*.ts": "eslint --cache --fix",
+    "*.{ts,md,yml,json}": "prettier --cache --write",
+    "*.{ts,md}": "cspell --no-must-find-files --no-summary --cache"
   }
 }

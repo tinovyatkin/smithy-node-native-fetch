@@ -15,28 +15,32 @@ This handler also allows you to use modern request mocking tooling such as [msw 
 Simplest way with default settings (keepAlive is enabled and no timeout set) is as below:
 
 ```ts
-import { S3Client } from '@aws-sdk/client-s3'
-import * as nodeNativeFetch from 'smithy-node-native-fetch'
+import { S3Client } from "@aws-sdk/client-s3";
+import * as nodeNativeFetch from "smithy-node-native-fetch";
 
-const s3 = new S3Client( {
-    retryMode: 'adaptive', // or whatever else settings
-    ...nodeNativeFetch
-})
+const s3 = new S3Client({
+  retryMode: "adaptive", // or whatever else settings
+  ...nodeNativeFetch,
+});
 ```
 
 If you want to customize settings then use specific imports:
 
 ```ts
-import { S3Client } from '@aws-sdk/client-s3'
-import { sdkStreamMixin, streamCollector, NodeNativeFetchHttpHandler } from './fetch-http-handler'
+import { S3Client } from "@aws-sdk/client-s3";
+import {
+  sdkStreamMixin,
+  streamCollector,
+  NodeNativeFetchHttpHandler,
+} from "./fetch-http-handler";
 
-const s3 = new S3Client( {
-    retryMode: 'adaptive', // or whatever else settings
-    requestHandler: new NodeNativeFetchHttpHandler({
-        requestTimeout: 5000, // default is no timeout
-        keepAlive: true // default is false
-    }),
-    sdkStreamMixin,
-    streamCollector
-})
+const s3 = new S3Client({
+  retryMode: "adaptive", // or whatever else settings
+  requestHandler: new NodeNativeFetchHttpHandler({
+    requestTimeout: 5000, // default is no timeout
+    keepAlive: true, // default is false
+  }),
+  sdkStreamMixin,
+  streamCollector,
+});
 ```
