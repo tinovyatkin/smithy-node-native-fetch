@@ -14,7 +14,9 @@
   "license": "Apache-2.0",
   "scripts": {
     "prepublishOnly": "tsc",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "pretest": "tsc",
+    "test": "c8 node --enable-source-maps --test"
   },
   "files": [
     "dist/"
@@ -27,12 +29,14 @@
     "smithy"
   ],
   "devDependencies": {
+    "@aws-sdk/client-s3": "^3.484.0",
     "@homer0/prettier-plugin-jsdoc": "8.0.0",
     "@smithy/protocol-http": "3.0.11",
     "@smithy/types": "2.7.0",
     "@types/node": "20.10.6",
     "@typescript-eslint/eslint-plugin": "6.16.0",
     "@typescript-eslint/parser": "6.16.0",
+    "c8": "^8.0.1",
     "cspell": "8.3.0",
     "eslint": "8.56.0",
     "eslint-config-prettier": "9.1.0",
@@ -40,14 +44,16 @@
     "lint-staged": "^15.2.0",
     "prettier": "3.1.1",
     "prettier-plugin-organize-imports": "3.2.4",
-    "typescript": "5.3.3"
+    "typescript": "5.3.3",
+    "undici": "^6.2.1"
   },
   "eslintConfig": {
     "ignorePatterns": [
       "dist/**"
     ],
     "env": {
-      "node": true
+      "node": true,
+      "es2022": true
     },
     "extends": [
       "eslint:recommended",
@@ -135,7 +141,18 @@
         }
       ],
       "@typescript-eslint/sort-type-constituents": "warn"
-    }
+    },
+    "overrides": [
+      {
+        "files": [
+          "*.mjs",
+          "*.js"
+        ],
+        "extends": [
+          "plugin:@typescript-eslint/disable-type-checked"
+        ]
+      }
+    ]
   },
   "prettier": {
     "plugins": [
@@ -166,5 +183,15 @@
     "*.ts": "eslint --cache --fix",
     "*.{ts,md,yml,json}": "prettier --cache --write",
     "*.{ts,md}": "cspell --no-must-find-files --no-summary --cache"
+  },
+  "c8": {
+    "all": true,
+    "src": "./src",
+    "exclude-node-modules": true,
+    "reporter": [
+      "text",
+      "lcov",
+      "json"
+    ]
   }
 }
