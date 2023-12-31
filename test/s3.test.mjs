@@ -16,12 +16,12 @@ describe("Network requests", () => {
   globalThis[Symbol.for("undici.globalDispatcher.1")] = mockAgent;
   const s3 = new S3Client({
     credentials: { accessKeyId: randomUUID(), secretAccessKey: randomUUID() },
-    region: "us-east-1",
+    region: "us-west-1",
     ...nativeFetchHandler,
   });
   const bucketName = "test-bucket";
   const mockPool = mockAgent.get(
-    `https://${bucketName}.s3.us-east-1.amazonaws.com`,
+    `https://${bucketName}.s3.us-west-1.amazonaws.com`,
   );
 
   before(() => {
@@ -47,7 +47,11 @@ describe("Network requests", () => {
     const res = await s3.send(
       new GetObjectCommand({ Bucket: bucketName, Key: testKey }),
     );
-    assert.equal(await res.Body.transformToString(), objectBody);
+    assert.equal(
+      await res.Body.transformToString("hex"),
+      Buffer.from(objectBody).toString("hex"),
+    );
+    mockAgent.assertNoPendingInterceptors();
   });
 
   test("s3 client PutObject", async () => {
@@ -76,5 +80,6 @@ describe("Network requests", () => {
       }),
     );
     assert.equal(res.ETag, "test-etag");
+    mockAgent.assertNoPendingInterceptors();
   });
 });

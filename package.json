@@ -173,7 +173,9 @@
     "words": [
       "Konstantin",
       "Vyatkin",
-      "undici"
+      "undici",
+      "codecov",
+      "lcov"
     ]
   },
   "peerDependencies": {
@@ -187,7 +189,7 @@
   "c8": {
     "all": true,
     "src": "./src",
-    "exclude-node-modules": true,
+    "excludeNodeModules": true,
     "reporter": [
       "text",
       "lcov",
