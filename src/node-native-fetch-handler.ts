@@ -2,17 +2,20 @@
  * @see https://github.com/smithy-lang/smithy-typescript/blob/main/packages/fetch-http-handler/src/fetch-http-handler.ts
  */
 
+import { Readable } from "node:stream";
 import { URL } from "node:url";
 
-import type { HttpHandler, HttpRequest } from "@smithy/protocol-http";
-import { HttpResponse } from "@smithy/protocol-http";
+import {
+  HttpResponse,
+  type HttpHandler,
+  type HttpRequest,
+} from "@smithy/protocol-http";
 import type {
   FetchHttpHandlerOptions,
   HeaderBag,
   HttpHandlerOptions,
   Provider,
 } from "@smithy/types";
-import { Readable } from "node:stream";
 
 type FetchHttpHandlerConfig = FetchHttpHandlerOptions;
 
