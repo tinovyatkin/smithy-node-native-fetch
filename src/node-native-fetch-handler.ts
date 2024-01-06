@@ -6,9 +6,9 @@ import { Readable } from "node:stream";
 import { URL } from "node:url";
 
 import {
-  HttpResponse,
   type HttpHandler,
   type HttpRequest,
+  type HttpResponse,
 } from "@smithy/protocol-http";
 import type {
   FetchHttpHandlerOptions,
@@ -16,6 +16,15 @@ import type {
   HttpHandlerOptions,
   Provider,
 } from "@smithy/types";
+
+/* eslint-disable @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-var-requires, @typescript-eslint/no-unsafe-member-access */
+let __HttpResponse: typeof HttpResponse;
+try {
+  __HttpResponse = require("@smithy/protocol-http").HttpResponse;
+} catch {
+  __HttpResponse = require("@aws-sdk/protocol-http").HttpResponse;
+}
+/* eslint-enable @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-var-requires, @typescript-eslint/no-unsafe-member-access */
 
 type FetchHttpHandlerConfig = FetchHttpHandlerOptions;
 
@@ -141,7 +150,7 @@ export class NodeNativeFetchHttpHandler
       const body = await response.blob();
 
       return {
-        response: new HttpResponse({
+        response: new __HttpResponse({
           headers: transformedHeaders,
           reason: response.statusText,
           statusCode: response.status,
@@ -152,7 +161,7 @@ export class NodeNativeFetchHttpHandler
 
     // Return the response with streaming body
     return {
-      response: new HttpResponse({
+      response: new __HttpResponse({
         headers: transformedHeaders,
         reason: response.statusText,
         statusCode: response.status,
