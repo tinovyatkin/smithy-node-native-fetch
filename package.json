@@ -21,7 +21,7 @@
     "pretest": "tsc",
     "test": "c8 node --enable-source-maps --test",
     "precdk-integ": "npm run build",
-    "cdk-integ": "integ-runner --update-on-failed"
+    "cdk-integ": "integ-runner"
   },
   "files": [
     "dist/"
