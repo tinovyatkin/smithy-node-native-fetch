@@ -44,3 +44,20 @@ const s3 = new S3Client({
   streamCollector,
 });
 ```
+
+### Usage with CDK / Lambda
+
+This modules also provides two small AWS CDK construct to simplify it's usage on AWS Lambda:
+
+- `SmithyNodeNativeFetchLayer` - deploys lambda layer with this module
+- `SmithyNodeNativeAspect` - an Aspect that deploys a singleton lambda layer and automatically add it to all supported lambda in a scope.
+
+Use is as below:
+
+```ts
+import * as cdk from "aws-cdk-lib";
+import { SmithyNodeNativeAspect } from "smithy-node-native-fetch/cdk";
+
+const app = new cdk.App();
+cdk.Aspects.of(app).add(new SmithyNodeNativeAspect());
+```

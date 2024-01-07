@@ -6,6 +6,16 @@
   },
   "description": "Node 18+ optimized native fetch handler for Smithy clients (like AWS SDK)",
   "main": "dist/index.js",
+  "exports": {
+    ".": {
+      "require": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    },
+    "./cdk": {
+      "require": "./dist/cdk.js",
+      "types": "./dist/cdk.d.ts"
+    }
+  },
   "author": "Konstantin Vyatkin <tino@vtkn.io>",
   "repository": {
     "url": "git+https://github.com/tinovyatkin/smithy-node-native-fetch.git",
