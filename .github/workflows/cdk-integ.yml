@@ -33,4 +33,4 @@ jobs:
           node-version: 18
 
       - run: npm ci
-      - run: npm run cdk-integ -- --force
+      - run: npm run cdk-integ -- --force --disable-update-workflow
