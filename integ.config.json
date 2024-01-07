@@ -1,0 +1,8 @@
+{
+  "app": "tsx {filePath}",
+  "maxWorkers": 3,
+  "parallelRegions": ["eu-west-1", "us-east-1"],
+  "language": "typescript",
+  "directory": ".",
+  "verbose": true
+}

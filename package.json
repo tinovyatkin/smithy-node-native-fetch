@@ -1,22 +1,37 @@
 {
   "name": "smithy-node-native-fetch",
-  "version": "1.0.6",
+  "version": "1.1.0",
   "engines": {
     "node": ">=18.12.0"
   },
   "description": "Node 18+ optimized native fetch handler for Smithy clients (like AWS SDK)",
   "main": "dist/index.js",
+  "exports": {
+    ".": {
+      "require": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    },
+    "./cdk": {
+      "require": "./dist/cdk.js",
+      "types": "./dist/cdk.d.ts"
+    }
+  },
   "author": "Konstantin Vyatkin <tino@vtkn.io>",
   "repository": {
-    "url": "https://github.com/tinovyatkin/smithy-node-native-fetch.git",
+    "url": "git+https://github.com/tinovyatkin/smithy-node-native-fetch.git",
     "type": "git"
   },
   "license": "Apache-2.0",
   "scripts": {
-    "prepublishOnly": "tsc",
+    "prebuild": "tsc",
+    "build": "esbuild src/index.ts --sourcemap --sources-content=false --bundle --platform=node --target=node18.12.0 --packages=external --minify --outdir=dist/lambda-layer/nodejs/node_modules/$npm_package_name/",
+    "postbuild": "jq --null-input '{\"name\":$ENV.npm_package_name, \"main\": \"index.js\"}' > dist/lambda-layer/nodejs/node_modules/$npm_package_name/package.json",
+    "prepublishOnly": "npm run build",
     "prepare": "husky install",
     "pretest": "tsc",
-    "test": "c8 node --enable-source-maps --test"
+    "test": "c8 node --enable-source-maps --test",
+    "precdk-integ": "npm run build",
+    "cdk-integ": "integ-runner"
   },
   "files": [
     "dist/"
@@ -29,21 +44,28 @@
     "smithy"
   ],
   "devDependencies": {
-    "@aws-sdk/client-s3": "3.485.0",
+    "@aws-cdk/integ-runner": "^2.118.0-alpha.0",
+    "@aws-cdk/integ-tests-alpha": "^2.118.0-alpha.0",
+    "@aws-sdk/client-s3": "3.484.0",
+    "@aws-sdk/protocol-http": "^3.374.0",
     "@homer0/prettier-plugin-jsdoc": "8.0.0",
     "@smithy/protocol-http": "3.0.12",
     "@smithy/types": "2.8.0",
     "@types/node": "20.10.6",
-    "@typescript-eslint/eslint-plugin": "6.18.0",
-    "@typescript-eslint/parser": "6.18.0",
-    "c8": "9.0.0",
-    "cspell": "8.3.2",
+    "@typescript-eslint/eslint-plugin": "6.16.0",
+    "@typescript-eslint/parser": "6.16.0",
+    "aws-cdk-lib": "^2.118.0",
+    "c8": "8.0.1",
+    "constructs": "^10.3.0",
+    "cspell": "8.3.0",
+    "esbuild": "^0.19.11",
     "eslint": "8.56.0",
     "eslint-config-prettier": "9.1.0",
     "husky": "8.0.3",
     "lint-staged": "15.2.0",
     "prettier": "3.1.1",
     "prettier-plugin-organize-imports": "3.2.4",
+    "tsx": "^4.7.0",
     "typescript": "5.3.3",
     "undici": "6.2.1"
   },
@@ -146,7 +168,8 @@
       {
         "files": [
           "*.mjs",
-          "*.js"
+          "*.js",
+          "**/integ.*.ts"
         ],
         "extends": [
           "plugin:@typescript-eslint/disable-type-checked"
@@ -175,11 +198,24 @@
       "Vyatkin",
       "undici",
       "codecov",
-      "lcov"
+      "lcov",
+      "integ"
+    ],
+    "ignorePaths": [
+      "package.json"
     ]
   },
   "peerDependencies": {
-    "@smithy/protocol-http": "^3"
+    "@smithy/protocol-http": "^3",
+    "@aws-sdk/protocol-http": "^3"
+  },
+  "peerDependenciesMeta": {
+    "@smithy/protocol-http": {
+      "optional": true
+    },
+    "@aws-sdk/protocol-http": {
+      "optional": true
+    }
   },
   "lint-staged": {
     "*.ts": "eslint --cache --fix",
@@ -190,10 +226,20 @@
     "all": true,
     "src": "./src",
     "excludeNodeModules": true,
+    "exclude": [
+      "src/cdk.ts"
+    ],
     "reporter": [
       "text",
       "lcov",
       "json"
     ]
+  },
+  "bugs": {
+    "url": "https://github.com/tinovyatkin/smithy-node-native-fetch/issues"
+  },
+  "homepage": "https://github.com/tinovyatkin/smithy-node-native-fetch#readme",
+  "directories": {
+    "test": "test"
   }
 }

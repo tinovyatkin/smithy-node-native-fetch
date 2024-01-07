@@ -1,0 +1,10 @@
+{
+  "version": "36.0.0",
+  "testCases": {
+    "smithy-native-fetch-layer-integ/DefaultTest": {
+      "stacks": ["smithy-native-fetch-test"],
+      "assertionStack": "smithy-native-fetch-layer-integ/DefaultTest/DeployAssert",
+      "assertionStackName": "smithynativefetchlayerintegDefaultTestDeployAssert9C476EED"
+    }
+  }
+}

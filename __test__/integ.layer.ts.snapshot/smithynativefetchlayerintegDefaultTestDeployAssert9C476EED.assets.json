@@ -1,0 +1,32 @@
+{
+  "version": "36.0.0",
+  "files": {
+    "57562799cf15fb41a7aa03a2d25a0707be565346aac1fb1f9634924d82585d44": {
+      "source": {
+        "path": "asset.57562799cf15fb41a7aa03a2d25a0707be565346aac1fb1f9634924d82585d44.bundle",
+        "packaging": "zip"
+      },
+      "destinations": {
+        "current_account-current_region": {
+          "bucketName": "cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}",
+          "objectKey": "57562799cf15fb41a7aa03a2d25a0707be565346aac1fb1f9634924d82585d44.zip",
+          "assumeRoleArn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-file-publishing-role-${AWS::AccountId}-${AWS::Region}"
+        }
+      }
+    },
+    "013baff4343a0b1ec7bfb304e4095142a958b7cd3a2b4c11366436f9507be650": {
+      "source": {
+        "path": "smithynativefetchlayerintegDefaultTestDeployAssert9C476EED.template.json",
+        "packaging": "file"
+      },
+      "destinations": {
+        "current_account-current_region": {
+          "bucketName": "cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}",
+          "objectKey": "013baff4343a0b1ec7bfb304e4095142a958b7cd3a2b4c11366436f9507be650.json",
+          "assumeRoleArn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-file-publishing-role-${AWS::AccountId}-${AWS::Region}"
+        }
+      }
+    }
+  },
+  "dockerImages": {}
+}
