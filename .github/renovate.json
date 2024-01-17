@@ -4,7 +4,15 @@
     "config:js-lib",
     "helpers:disableTypesNodeMajor",
     ":disablePeerDependencies",
-    ":automergeLinters"
-  ],
-  "prHourlyLimit": 1
+    ":automergeLinters",
+    ":automergeTypes",
+    ":automergeTesters",
+    ":automergeStableNonMajor",
+    ":combinePatchMinorReleases",
+    ":disableDependencyDashboard",
+    ":disablePeerDependencies",
+    ":maintainLockFilesWeekly",
+    ":prHourlyLimit1",
+    ":semanticCommits"
+  ]
 }
