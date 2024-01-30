@@ -8,10 +8,10 @@
     ":automergeTypes",
     ":automergeTesters",
     ":automergeStableNonMajor",
+    ":automergePatch",
     ":combinePatchMinorReleases",
     ":disableDependencyDashboard",
     ":disablePeerDependencies",
-    ":maintainLockFilesWeekly",
     ":prHourlyLimit1",
     ":semanticCommits"
   ]
