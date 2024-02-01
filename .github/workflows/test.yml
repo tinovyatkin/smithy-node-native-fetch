@@ -25,4 +25,4 @@ jobs:
           node-version: 18
 
       - run: npm install-ci-test
-      - uses: codecov/codecov-action@v3
+      - uses: codecov/codecov-action@v4
