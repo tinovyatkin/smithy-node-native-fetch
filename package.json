@@ -57,7 +57,7 @@
     "aws-cdk-lib": "2.128.0",
     "c8": "9.1.0",
     "constructs": "10.3.0",
-    "cspell": "8.3.2",
+    "cspell": "8.4.0",
     "esbuild": "0.20.1",
     "eslint": "8.56.0",
     "eslint-config-prettier": "9.1.0",
