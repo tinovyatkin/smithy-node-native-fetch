@@ -67,7 +67,7 @@
     "prettier-plugin-organize-imports": "3.2.4",
     "tsx": "4.9.3",
     "typescript": "5.4.5",
-    "undici": "6.15.0"
+    "undici": "6.16.0"
   },
   "eslintConfig": {
     "ignorePatterns": [
