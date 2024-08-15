@@ -54,7 +54,7 @@
     "@types/node": "20.14.15",
     "@typescript-eslint/eslint-plugin": "7.18.0",
     "@typescript-eslint/parser": "7.18.0",
-    "aws-cdk-lib": "2.151.0",
+    "aws-cdk-lib": "2.151.1",
     "c8": "10.1.2",
     "constructs": "10.3.0",
     "cspell": "8.13.3",
