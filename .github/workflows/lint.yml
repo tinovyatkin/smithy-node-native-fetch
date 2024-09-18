@@ -21,8 +21,12 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 18
+          cache: npm
 
       - run: npm ci
+        env:
+          HUSKY: 0
+
       - run: npx eslint "src/**/*.ts"
       - run: npx prettier --check "*.{ts,md}"
       - run: npx cspell "**/*.{ts,md}"

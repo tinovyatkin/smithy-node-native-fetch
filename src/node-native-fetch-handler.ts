@@ -17,14 +17,14 @@ import type {
   Provider,
 } from "@smithy/types";
 
-/* eslint-disable @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-var-requires, @typescript-eslint/no-unsafe-member-access */
+/* eslint-disable @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-require-imports, @typescript-eslint/no-unsafe-member-access */
 let __HttpResponse: typeof HttpResponse;
 try {
   __HttpResponse = require("@smithy/protocol-http").HttpResponse;
 } catch {
   __HttpResponse = require("@aws-sdk/protocol-http").HttpResponse;
 }
-/* eslint-enable @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-var-requires, @typescript-eslint/no-unsafe-member-access */
+/* eslint-enable @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-require-imports, @typescript-eslint/no-unsafe-member-access */
 
 type FetchHttpHandlerConfig = FetchHttpHandlerOptions;
 
@@ -118,7 +118,7 @@ export class NodeNativeFetchHttpHandler
     if (request.body && method !== "GET" && method !== "HEAD") {
       if (request.body instanceof Readable)
         requestOptions.body = Readable.toWeb(request.body);
-      else requestOptions.body = request.body;
+      else requestOptions.body = request.body; // eslint-disable-line @typescript-eslint/no-unsafe-assignment
     }
 
     const requestTimeoutInMs = this.config.requestTimeout;
