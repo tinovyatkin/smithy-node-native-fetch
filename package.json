@@ -9,10 +9,12 @@
   "exports": {
     ".": {
       "require": "./dist/index.js",
+      "import": "./dist/index.js",
       "types": "./dist/index.d.ts"
     },
     "./cdk": {
       "require": "./dist/cdk.js",
+      "import": "./dist/cdk.js",
       "types": "./dist/cdk.d.ts"
     }
   },
