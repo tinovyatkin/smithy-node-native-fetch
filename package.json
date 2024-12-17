@@ -65,7 +65,7 @@
     "eslint": "9.11.1",
     "eslint-config-prettier": "9.1.0",
     "globals": "15.11.0",
-    "husky": "9.1.6",
+    "husky": "9.1.7",
     "lint-staged": "15.2.10",
     "prettier": "3.3.3",
     "prettier-plugin-organize-imports": "4.1.0",
