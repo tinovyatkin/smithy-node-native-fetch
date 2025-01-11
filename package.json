@@ -55,7 +55,7 @@
     "@smithy/protocol-http": "4.1.8",
     "@smithy/types": "3.7.2",
     "@types/eslint__js": "8.42.3",
-    "@types/node": "20.17.10",
+    "@types/node": "20.17.12",
     "aws-cdk-lib": "2.173.2",
     "aws-cdk": "2.173.2",
     "c8": "10.1.3",
