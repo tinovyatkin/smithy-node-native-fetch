@@ -46,7 +46,7 @@
     "smithy"
   ],
   "devDependencies": {
-    "@aws-cdk/integ-runner": "2.188.1",
+    "@aws-cdk/integ-runner": "2.188.2",
     "@aws-cdk/integ-tests-alpha": "2.158.0-alpha.0",
     "@aws-sdk/client-s3": "3.840.0",
     "@aws-sdk/protocol-http": "3.374.0",
