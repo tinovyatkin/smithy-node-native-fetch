@@ -57,7 +57,7 @@
     "@types/eslint__js": "8.42.3",
     "@types/node": "20.19.14",
     "aws-cdk-lib": "2.214.0",
-    "aws-cdk": "2.1029.0",
+    "aws-cdk": "2.1029.1",
     "c8": "10.1.3",
     "constructs": "10.4.2",
     "cspell": "8.19.4",
