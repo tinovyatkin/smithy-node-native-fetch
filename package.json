@@ -72,7 +72,7 @@
     "tsx": "4.20.6",
     "typescript": "5.9.3",
     "typescript-eslint": "8.45.0",
-    "undici": "6.21.3"
+    "undici": "6.22.0"
   },
   "prettier": {
     "plugins": [
