@@ -52,7 +52,7 @@
     "@aws-sdk/protocol-http": "3.374.0",
     "@eslint/js": "9.37.0",
     "@homer0/prettier-plugin-jsdoc": "10.0.0",
-    "@smithy/protocol-http": "5.3.1",
+    "@smithy/protocol-http": "5.3.2",
     "@smithy/types": "4.7.0",
     "@types/eslint__js": "8.42.3",
     "@types/node": "20.19.21",
