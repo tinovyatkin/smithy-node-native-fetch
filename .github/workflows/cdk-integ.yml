@@ -33,7 +33,7 @@ jobs:
         with:
           role-to-assume: arn:aws:iam::676824148681:role/github-actions-role
           aws-region: eu-west-1
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v6
         with:
           node-version: 18
           cache: npm
