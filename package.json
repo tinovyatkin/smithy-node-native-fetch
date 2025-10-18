@@ -48,7 +48,7 @@
   "devDependencies": {
     "@aws-cdk/integ-runner": "2.191.0",
     "@aws-cdk/integ-tests-alpha": "2.158.0-alpha.0",
-    "@aws-sdk/client-s3": "3.911.0",
+    "@aws-sdk/client-s3": "3.913.0",
     "@aws-sdk/protocol-http": "3.374.0",
     "@eslint/js": "9.37.0",
     "@homer0/prettier-plugin-jsdoc": "10.0.0",
