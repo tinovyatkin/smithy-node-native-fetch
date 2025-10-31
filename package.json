@@ -53,7 +53,7 @@
     "@eslint/js": "9.38.0",
     "@homer0/prettier-plugin-jsdoc": "10.0.0",
     "@smithy/protocol-http": "5.3.4",
-    "@smithy/types": "4.8.0",
+    "@smithy/types": "4.8.1",
     "@types/eslint__js": "8.42.3",
     "@types/node": "20.19.24",
     "aws-cdk-lib": "2.221.1",
