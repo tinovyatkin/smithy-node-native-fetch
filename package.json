@@ -51,7 +51,7 @@
     "@aws-sdk/client-s3": "3.939.0",
     "@aws-sdk/protocol-http": "3.374.0",
     "@eslint/js": "9.39.1",
-    "@homer0/prettier-plugin-jsdoc": "10.0.0",
+    "@homer0/prettier-plugin-jsdoc": "10.0.1",
     "@smithy/protocol-http": "5.3.5",
     "@smithy/types": "4.9.0",
     "@types/eslint__js": "8.42.3",
