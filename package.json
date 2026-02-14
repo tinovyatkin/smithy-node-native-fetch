@@ -54,7 +54,7 @@
     "@homer0/prettier-plugin-jsdoc": "10.0.1",
     "@smithy/protocol-http": "5.3.8",
     "@smithy/types": "4.12.0",
-    "@types/eslint__js": "8.42.3",
+    "@types/eslint__js": "9.14.0",
     "@types/node": "20.19.33",
     "aws-cdk-lib": "2.238.0",
     "aws-cdk": "2.1106.0",
